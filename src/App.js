@@ -6,6 +6,7 @@ import Cart from "./components/Cart/Cart";
 import UserOrders from "./components/User/UserOrder/UserOrder";
 import UserProfiles from "./components/User/UserOrder/UserProfile";
 import UserFavoriteComponent from "./components/User/UserFavorate/UserFavorate";
+import ListProduct from "./components/ListProduct/ListProduct";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/user/order" element={<UserOrders />} />
             <Route path="/user/profile" element={<UserProfiles />} />
             <Route path="/user/favorite" element={<UserFavoriteComponent />} />
+            <Route path="/listProduct" element={<ListProduct />} />
           </Route>
         </Routes>
       </BrowserRouter>

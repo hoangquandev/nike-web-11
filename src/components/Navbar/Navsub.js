@@ -3,6 +3,10 @@ import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import { Toolbar, Typography } from "@mui/material";
 import SignIn from "./NavMainComponents/SignIn";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import * as action from "../ListProduct/module/action/action";
+import * as ActionType from "../ListProduct/module/constant/constant";
 
 const useStyles = makeStyles((theme) => ({
   nav: {
@@ -79,15 +83,27 @@ const useStyles = makeStyles((theme) => ({
 const Navsub = () => {
   const classes = useStyles();
   const [helpMenu, setHelpMenu] = useState(false);
+  const dispatch = useDispatch();
   return (
     <AppBar className={classes.nav} id="navsub">
       <Toolbar className={classes.toolbar}>
-        <a href="#a" ib="jordan" className={classes.linkJordan}>
-          <img
-            src="https://www.nike.com/assets/experience/ciclp/landing-pages/static/v2/1494-4685d103b4e/static/icons/jordan.svg"
-            className={classes.jordan}
-          />
-        </a>
+        <div id="jordan" className={classes.linkJordan}>
+          <img src="" className={classes.jordan} />
+          <Link
+            to="/listProduct"
+            className={classes.menuItem}
+            onClick={() => {
+              dispatch(
+                action.createAction({
+                  type: ActionType.CHANGE_GENDER_TYPEPRODUCT,
+                  payload: { gender: "male", typeProduct: "shoes" },
+                })
+              );
+            }}
+          >
+            All shoes
+          </Link>
+        </div>
         <Typography variant="h6" className={classes.title}></Typography>
         <div className={classes.nav1}>
           <div
